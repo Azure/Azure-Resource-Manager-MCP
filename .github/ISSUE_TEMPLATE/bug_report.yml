@@ -1,0 +1,118 @@
+name: Bug Report
+description: Report a problem or unexpected behavior
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+  
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Run command '...'
+        3. See error
+    validations:
+      required: true
+  
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: A clear and concise description of what actually happened.
+    validations:
+      required: true
+  
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What OS are you using?
+      placeholder: e.g., Windows 11 / Ubuntu 22.04 / macOS 14
+    validations:
+      required: true
+  
+  - type: input
+    id: architecture
+    attributes:
+      label: Architecture
+      description: What architecture are you using?
+      placeholder: e.g., x64 / arm64
+    validations:
+      required: true
+  
+  - type: input
+    id: runtime-environment
+    attributes:
+      label: Runtime Environment
+      description: How do you run it?
+      placeholder: e.g., local, container, CI
+    validations:
+      required: true
+  
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Version or commit SHA of arm-mcp-server
+      placeholder: e.g., v1.0.0 or commit SHA
+    validations:
+      required: true
+  
+  - type: input
+    id: shell-terminal
+    attributes:
+      label: Shell / Terminal
+      description: What shell or terminal are you using (if relevant)?
+      placeholder: e.g., bash, zsh, PowerShell, Windows Terminal
+    validations:
+      required: false
+  
+  - type: input
+    id: runtime-version
+    attributes:
+      label: Runtime Version
+      description: Node.js / Python / .NET version (if relevant)
+      placeholder: e.g., Node.js v20.10.0
+    validations:
+      required: false
+  
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Screenshots
+      description: Please add any relevant logs, stack traces, or screenshots.
+      placeholder: Paste logs here
+      render: text
+    validations:
+      required: false
+  
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here (workarounds tried, frequency, related issues/PRs, etc.)
+    validations:
+      required: false
