@@ -29,7 +29,7 @@ The onboarding link opens into VS Code and requires it to already be present.
 
 ### 1. Join the ARM MCP Program
 1. Open: **https://aka.ms/JoinARMMCP**  
-VS Code will launch automatically. 
+   VS Code will launch automatically. 
 
 2. When prompted inside VS Code, click **Install** under **ARM MCP Server** to add it to your MCP server configuration.  
 
@@ -39,8 +39,6 @@ VS Code will launch automatically.
 
 ### 2. Open the Chat Interface
 1. In VS Code, go to **View > Chat**, or click the chat icon to the right of the center toolbar header.
-
-
 
 ### 3. Configure MCP Tools
 1. In the Chat window, click the **Configure Tools** icon.  
@@ -75,46 +73,45 @@ Server:
 ## 1. execute_query
 
 **Description:**  
-Executes a given query against the ARM MCP database and returns the results.
+Executes a given query against Azure Resource Graph and returns the results.
 
 **Example Use Cases:**  
-- Retrieving specific data records based on user input.
-- Running scheduled reports or analytics queries.
-- Fetching real-time metrics for dashboards.
+- Retrieving Azure resource information based on user input.
+- Running resource inventory reports or compliance queries.
+- Fetching real-time metrics about Azure resources.
 
 **AI Usage Scenario:**  
-An AI assistant receives a user request for the latest system logs. It uses `generate_query` to
-create the appropriate query, then calls `execute_query` to retrieve and present the results.
+An AI assistant receives a user request for all virtual machines in a specific resource group. It uses `generate_query` to create the appropriate ARG query, then calls `execute_query` to retrieve and present the results.
 
 ---
 
 ## 2. generate_query
 
 **Description:**  
-Automatically generates a valid query based on a natural language prompt or structured requirements.
+Automatically generates a valid Azure Resource Graph query based on a natural language prompt or structured requirements.
 
 **Example Use Cases:**  
-- Translating user questions into database queries.
-- Assisting users who are unfamiliar with query syntax.
-- Automating report generation based on high-level instructions.
+- Translating user questions into ARG queries.
+- Assisting users who are unfamiliar with KQL (Kusto Query Language) syntax.
+- Automating resource inventory report generation based on high-level instructions.
 
 **AI Usage Scenario:**  
-A user asks, "Show me all failed login attempts in the past 24 hours." The AI uses `generate_query` to convert this request into a valid query for execution.
+A user asks, "Show me all storage accounts in the East US region." The AI uses `generate_query` to convert this request into a valid ARG query for execution.
 
 ---
 
 ## 3. validate_query
 
 **Description:**  
-Checks the syntax and logic of a query before execution to ensure correctness and prevent errors.
+Checks the syntax and logic of an Azure Resource Graph query before execution to ensure correctness and prevent errors.
 
 **Example Use Cases:**  
-- Preventing malformed queries from reaching the database.
-- Providing feedback to users on query issues.
+- Preventing malformed ARG queries from being executed.
+- Providing feedback to users on query syntax issues.
 - Ensuring compliance with security and data access policies.
 
 **AI Usage Scenario:**  
-Before executing a user-generated query, the AI uses `validate_query` to confirm the query is safe and correct, reducing the risk of runtime errors or security breaches.
+Before executing a user-generated ARG query, the AI uses `validate_query` to confirm the query is safe and syntactically correct, reducing the risk of runtime errors or security issues.
 
 ---
 
