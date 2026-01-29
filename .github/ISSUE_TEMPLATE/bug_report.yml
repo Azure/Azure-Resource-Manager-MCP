@@ -1,0 +1,91 @@
+name: Bug Report
+description: Report a problem or unexpected behavior
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+  
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Run command '...'
+        3. See error
+    validations:
+      required: true
+  
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: A clear and concise description of what actually happened.
+    validations:
+      required: true
+  
+  - type: input
+    id: vscode-version
+    attributes:
+      label: VSCode Version
+      description: What version of VSCode are you using?
+      placeholder: e.g., 1.95.0
+    validations:
+      required: true
+  
+  - type: input
+    id: arm-mcp-server-version
+    attributes:
+      label: ARM MCP Server Version
+      description: What version of the ARM MCP server are you using?
+      placeholder: e.g., v1.0.0 or commit SHA
+    validations:
+      required: true
+  
+  - type: input
+    id: model
+    attributes:
+      label: Model Being Used
+      description: Which AI model is being used to power the agent?
+      placeholder: e.g., GPT-4, GPT-4o, Claude Opus, Claude Sonnet
+    validations:
+      required: true
+  
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Screenshots
+      description: Please add any relevant logs, stack traces, or screenshots.
+      placeholder: Paste logs here
+      render: text
+    validations:
+      required: false
+  
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here (workarounds tried, frequency, related issues/PRs, etc.)
+    validations:
+      required: false
