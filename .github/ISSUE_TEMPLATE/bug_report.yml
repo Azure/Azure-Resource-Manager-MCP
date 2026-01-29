@@ -46,58 +46,31 @@ body:
       required: true
   
   - type: input
-    id: os
+    id: vscode-version
     attributes:
-      label: Operating System
-      description: What OS are you using?
-      placeholder: e.g., Windows 11 / Ubuntu 22.04 / macOS 14
+      label: VSCode Version
+      description: What version of VSCode are you using?
+      placeholder: e.g., 1.95.0
     validations:
       required: true
   
   - type: input
-    id: architecture
+    id: arm-mcp-server-version
     attributes:
-      label: Architecture
-      description: What architecture are you using?
-      placeholder: e.g., x64 / arm64
-    validations:
-      required: true
-  
-  - type: input
-    id: runtime-environment
-    attributes:
-      label: Runtime Environment
-      description: How do you run it?
-      placeholder: e.g., local, container, CI
-    validations:
-      required: true
-  
-  - type: input
-    id: version
-    attributes:
-      label: Version
-      description: Version or commit SHA of arm-mcp-server
+      label: ARM MCP Server Version
+      description: What version of the ARM MCP server are you using?
       placeholder: e.g., v1.0.0 or commit SHA
     validations:
       required: true
   
   - type: input
-    id: shell-terminal
+    id: model
     attributes:
-      label: Shell / Terminal
-      description: What shell or terminal are you using (if relevant)?
-      placeholder: e.g., bash, zsh, PowerShell, Windows Terminal
+      label: Model Being Used
+      description: Which AI model is being used to power the agent?
+      placeholder: e.g., GPT-4, GPT-4o, Claude Opus, Claude Sonnet
     validations:
-      required: false
-  
-  - type: input
-    id: runtime-version
-    attributes:
-      label: Runtime Version
-      description: Node.js / Python / .NET version (if relevant)
-      placeholder: e.g., Node.js v20.10.0
-    validations:
-      required: false
+      required: true
   
   - type: textarea
     id: logs
