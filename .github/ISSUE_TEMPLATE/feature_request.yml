@@ -27,7 +27,7 @@ body:
       required: true
   
   - type: textarea
-    id: alternatives
+    id: alternatives-considered
     attributes:
       label: Alternatives Considered
       description: Describe any alternative solutions or features you've considered.
