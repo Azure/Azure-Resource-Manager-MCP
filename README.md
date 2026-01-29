@@ -38,7 +38,7 @@ VS Code will launch automatically.
 ## Configure Tools in VS Code
 
 ### 2. Open the Chat Interface
-1. In VS Code, go to **View > Chat**. or click the chat icon to the right of the center toolbar header.
+1. In VS Code, go to **View > Chat**, or click the chat icon to the right of the center toolbar header.
 
 
 
@@ -59,7 +59,7 @@ Switch Chat into **Agent mode**, then ask a question involving **ARG** (Azure Re
 
 Example: *"Show me all VMs in my subscription using ARG."*  
 
-Example: *"How many virtual machines are in my sub "mySub" "*  
+Example: *"How many virtual machines are in my sub 'mySub'?"*  
 
 You are now onboarded and ready to experiment with ARG‑backed natural language queries using the ARM MCP Server inside VS Code. To submit feedback, please follow the instructions on the [feedback page](TODO link).
 
