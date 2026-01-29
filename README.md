@@ -12,9 +12,9 @@ To use the ARM MCP Server, you will need to submit your **tenant ID** to our enr
 
 ---
 
-# ARM MCP Server – Internal Onboarding Guide
+# ARM MCP Server - Internal Onboarding Guide
 
-This guide walks you through prerequisites, installation, configuration, and first‑use steps for onboarding to the ARM MCP Server inside Visual Studio Code (VS Code).
+This guide walks you through prerequisites, installation, configuration, and first-use steps for onboarding to the ARM MCP Server inside Visual Studio Code (VS Code).
 
 ---
 
@@ -53,13 +53,13 @@ The onboarding link opens into VS Code and requires it to already be present.
 ## First Use
 
 ### 4. Use Chat in Agent Mode
-Switch Chat into **Agent mode**, then ask a question involving **ARG** (Azure Resource Graph).  
+Switch Chat into **Agent mode**, then ask a question involving ARG (Azure Resource Graph).  
 
 Example: *"Show me all VMs in my subscription using ARG."*  
 
 Example: *"How many virtual machines are in my sub 'mySub'?"*  
 
-You are now onboarded and ready to experiment with ARG‑backed natural language queries using the ARM MCP Server inside VS Code. To submit feedback, please follow the instructions on the [feedback page](TODO link).
+You are now onboarded and ready to experiment with ARG-backed natural language queries using the ARM MCP Server inside VS Code. To submit feedback, please follow the instructions on the [feedback page](TODO link).
 
 ---
 
