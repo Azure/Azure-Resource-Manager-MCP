@@ -16,7 +16,7 @@ This is a repository to track features/bugs/suggestions for the ARM (Azure Resou
 
 ## Overview
 The ARM MCP Server is designed to give your AI Agent the tools necessary to generate, validate, and
-execute Azure Resource Graph (ARG) queries. It acts as a backend service that enables GitHub agent
+execute Azure Resource Graph (ARG) queries. It acts as a backend service that enables AI agent
 mode to access real-time, relevant data from your Azure environment, improving automation and
 decision-making capabilities.
 
@@ -54,8 +54,10 @@ Other prerequisites include:
 #### 1. Join the ARM MCP Program
 1. Open: **https://aka.ms/JoinARMMCP**. VS Code will launch automatically. 
 
-2. When prompted inside VS Code, click **Install** under **ARM MCP Server** to add it to your MCP
-   server configuration.
+2. When prompted inside VS Code, click **Install** under **ARM MCP Server** to add it to your MCP server configuration.
+
+3. You will be prompted to sign in with your Azure credentials. Use the same account that has access
+   to your allowlisted tenant.
 
 #### 2. Open the Chat Interface
 1. In VS Code, go to **View > Chat**. or click the chat icon to the right of the center toolbar
@@ -66,7 +68,6 @@ Other prerequisites include:
    - **execute_query**   
    - **generate_query**  
    - **validate_query**  
-4. Sign in with the same Azure credentials that have access to your allowlisted tenant.
 
 ## Usage
 
@@ -74,7 +75,7 @@ Other prerequisites include:
 2. Ensure the ARM MCP Server tools are enabled.
 3. Type your query or request in natural language.
 
-[Demo Video](./docs/media/ARM_MCP_DEMO_1.mov)
+[Demo GIF](./docs/media/ARM_MCP_Server_Demo1.gif)
 
 ## Contributing
 
