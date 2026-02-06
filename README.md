@@ -90,7 +90,7 @@ address your problems!
 - Verify that your Azure Tenant is allowlisted for the ARM MCP Server. By checking the email you
   requested the access with, you should have received a confirmation once your tenant was approved.
 - If you encounter issues, please create an issue in this repository with detailed information about
-  the problem
+  the problem.
 
 ## License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
