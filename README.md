@@ -87,8 +87,8 @@ address your problems!
 
 ## Troubleshooting
 - Ensure your Azure credentials are correct and have sufficient permissions.
-- Verify that your Azure Tenant is allowlisted for the ARM MCP Server. By checking the email you
-  requested the access with, you should have received a confirmation once your tenant was approved.
+- Verify that your Azure Tenant is allowlisted for the ARM MCP Server. By checking the email you used
+  to request access, you should have received a confirmation once your tenant was approved.
 - If you encounter issues, please create an issue in this repository with detailed information about
   the problem.
 
