@@ -60,7 +60,7 @@ Other prerequisites include:
    to your allowlisted tenant.
 
 #### 2. Open the Chat Interface
-1. In VS Code, go to **View > Chat**. or click the chat icon to the right of the center toolbar
+1. In VS Code, go to **View > Chat**, or click the chat icon to the right of the center toolbar
    header.
 2. In the Chat window, click the **Configure Tools** icon.  
 3. Ensure **ARM MCP Server** is checked. You can click the dropdown icon to see three tools under
