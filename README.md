@@ -38,18 +38,10 @@ Below is a table showing the tools provided by the ARM MCP Server:
 ## Getting Started
 
 ### Prerequisites
-We are currently in a **limited public preview** for the ARM MCP Server. To gain access, you will
-need to have your Azure Tenant allowlisted. Please fill out the [access request
-form](https://aka.ms/arm-mcp-server-access-request) to get started.
-
-Other prerequisites include:
 - VS Code installed 
 - Valid Azure Account
 
 ### Installation
-
-> ![Important](https://img.shields.io/badge/Important-Read%20Before%20You%20Begin-red)
-> You will need to have your Azure Tenant allowlisted to use the ARM MCP Server. Please fill out the [access request form](https://aka.ms/arm-mcp-server-access-request) before proceeding with installation.
 
 #### 1. Join the ARM MCP Program
 1. Open: **https://aka.ms/JoinARMMCP**. VS Code will launch automatically. 
