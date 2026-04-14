@@ -9,9 +9,9 @@ This is a repository to track features/bugs/suggestions for the Azure Management
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [Troubleshooting](#troubleshooting)
-- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Transparency FAQ](#transparency-faq)
 - [License](#license)
 
 ## Overview
@@ -69,6 +69,13 @@ Below is a table showing the tools provided by the Azure Management MCP Server:
 
 [Demo GIF](./docs/media/Azure_Management_MCP_Server_Demo1.gif)
 
+## Troubleshooting
+- Ensure your Azure credentials are correct and have sufficient permissions.
+- If you encounter issues, please create an issue in this repository with detailed information about
+  the problem.
+- Check the logs in the `Output` panel, attached to the MCP or GitHub Copilot chat session in VSCode
+  for a detailed view of the operations and any errors.
+
 ## Contributing
 
 This repository is dedicated solely to gathering feedback from users and contributors. While
@@ -77,16 +84,9 @@ primary purpose of this repository is to facilitate feedback through the creatio
 use issues to share your thoughts, suggestions, or concerns, as this helps us better understand and
 address your problems!
 
-## Troubleshooting
-- Ensure your Azure credentials are correct and have sufficient permissions.
-- If you encounter issues, please create an issue in this repository with detailed information about
-  the problem.
-- Check the logs in the `Output` panel, attached to the MCP or GitHub Copilot chat session in VSCode
-  for a detailed view of the operations and any errors.
-
 ## Transparency FAQ
 
-For more information about how the Azure Management MCP Server works, its limitations, and best practices for use, please refer to our [Transparency FAQ](./docs/media/TransparencyFAQ.md).
+For more information about how the Azure Management MCP Server works, its limitations, and best practices for use, please refer to our [Transparency FAQ](./docs/TransparencyFAQ.md).
 
 ## License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
