@@ -73,7 +73,7 @@ body:
       required: true
   
   - type: input
-    id: traceid
+    id: trace-id
     attributes:
       label: Trace ID
       description: Trace ID for debugging purposes
