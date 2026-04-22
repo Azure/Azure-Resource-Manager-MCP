@@ -12,7 +12,7 @@ information about your resources.
 Azure Management MCP Server provides three core capabilities:
 - **Generate queries**: Convert natural language requests into valid ARG queries
 - **Validate queries**: Check queries for correctness, syntax, and security before execution
-- **Execute queries**: Runs queries against your Azure environment and return results
+- **Execute queries**: Runs queries against your Azure environment and returns results
 
 ## What are Azure Management MCP Server's intended uses?
 
