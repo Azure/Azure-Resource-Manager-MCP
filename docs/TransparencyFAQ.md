@@ -35,7 +35,7 @@ experience in the Azure Portal.
 - Natural language interpretation may occasionally produce unexpected query structures
 
 **How to minimize impact:**
-- Review generated queries before execution or ensure your intent includes to validate them
+- Review generated queries before execution or ask the system to validate them first
 - Ensure your Azure credentials have appropriate permissions for your intended queries
 - Use the validation tool to catch errors before running queries
 - Start with specific, well-defined requests rather than overly broad natural language prompts
