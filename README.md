@@ -2,18 +2,6 @@
 
 This is a repository to track features/bugs/suggestions for the Azure Management MCP Server
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-- [Usage](#usage)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Transparency FAQ](#transparency-faq)
-- [License](#license)
-
 ## Overview
 The Azure Management MCP Server is designed to give your AI Agent the tools necessary to generate, validate, and
 execute Azure Resource Graph (ARG) queries. It acts as a backend service that enables AI agent
