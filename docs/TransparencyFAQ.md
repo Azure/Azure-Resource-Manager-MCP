@@ -1,4 +1,3 @@
-
 # Azure Management MCP Server: Transparency FAQ
 
 ## What is Azure Management MCP Server?
