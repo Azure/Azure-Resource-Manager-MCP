@@ -72,6 +72,15 @@ body:
     validations:
       required: true
   
+  - type: input
+    id: traceid
+    attributes:
+      label: Trace ID
+      description: Trace ID for debugging purposes
+      placeholder: e.g., trace_abc123xyz
+    validations:
+      required: false
+  
   - type: textarea
     id: logs
     attributes:

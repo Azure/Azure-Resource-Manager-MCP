@@ -44,12 +44,11 @@ Below is a table showing the tools provided by the Azure Management MCP Server:
 ### Installation
 
 #### 1. Installing the MCP Server
-1. Open: **https://aka.ms/JoinARMMCP**. VS Code will launch automatically. 
+1. Open: **https://aka.ms/JoinAzMgmtMCP**. VS Code will launch automatically. 
 
 2. When prompted inside VS Code, click **Install** under **Azure Management MCP Server** to add it to your MCP server configuration.
 
-3. You will be prompted to sign in with your Azure credentials. Use the same account that has access
-   to your allowlisted tenant.
+3. You will be prompted to sign in with your Azure credentials. 
 
 #### 2. Open the Chat Interface
 1. In VS Code, go to **View > Chat**, or click the chat icon to the right of the center toolbar
@@ -67,7 +66,7 @@ Below is a table showing the tools provided by the Azure Management MCP Server:
 2. Ensure the Azure Management MCP Server tools are enabled.
 3. Type your query or request in natural language.
 
-[Demo GIF](./docs/media/Azure_Management_MCP_Server_Demo1.gif)
+[Demo GIF](./docs/media/AzMgmtDemo.gif)
 
 ## Troubleshooting
 - Ensure your Azure credentials are correct and have sufficient permissions.
@@ -84,6 +83,10 @@ primary purpose of this repository is to facilitate feedback through the creatio
 use issues to share your thoughts, suggestions, or concerns, as this helps us better understand and
 address your problems!
 
+## Code of Conduct
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [CODE_OF_CONDUCT.md](./docs/CODE_OF_CONDUCT.md) file.
+
 ## Transparency FAQ
 
 For more information about how the Azure Management MCP Server works, its limitations, and best practices for use, please refer to our [Transparency FAQ](./docs/TransparencyFAQ.md).
@@ -91,4 +94,11 @@ For more information about how the Azure Management MCP Server works, its limita
 ## License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
+## Trademarks
+
+This project may contain trademarks or logos for projects, products, or services. Authorized use of
+Microsoft trademarks or logos is subject to and must follow Microsoft’s Trademark & Brand
+Guidelines. Use of Microsoft trademarks or logos in modified versions of this project must not cause
+confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to
+those third-party’s policies.
 
