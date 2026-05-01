@@ -80,7 +80,9 @@ using the Azure Management MCP Server.
 
 ## Governance
 
-The Azure Management MCP Server uses the same authentication and authorization context as the signed-in user in VS Code. This means that all tool calls are made on behalf of that user and are subject to the same permissions and access controls defined in Azure. 
+The Azure Management MCP Server uses the same authentication and authorization context as the
+signed-in user in VS Code. This means that all tool calls are made on behalf of that user and are
+subject to the same permissions and access controls defined in Azure.
 
 ### Blocking Template requests
 To prevent any deployments from being made via the ARM MCP server you can apply an Azure Policy to
@@ -99,11 +101,14 @@ address your problems!
 
 ## Code of Conduct
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [CODE_OF_CONDUCT.md](./docs/CODE_OF_CONDUCT.md) file.
+This project has adopted the [Microsoft Open Source Code of
+Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the
+[CODE_OF_CONDUCT.md](./docs/CODE_OF_CONDUCT.md) file.
 
 ## Transparency FAQ
 
-For more information about how the Azure Management MCP Server works, its limitations, and best practices for use, please refer to our [Transparency FAQ](./docs/TransparencyFAQ.md).
+For more information about how the Azure Management MCP Server works, its limitations, and best
+practices for use, please refer to our [Transparency FAQ](./docs/TransparencyFAQ.md).
 
 ## License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
