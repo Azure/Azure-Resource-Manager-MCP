@@ -1,0 +1,16 @@
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "value": "[tryGet(requestContext().identity, 'appid')]",
+          "equals": "22bfbae3-f4e7-485f-be43-8cee15065084"
+        }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  }
+}
