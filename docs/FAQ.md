@@ -42,7 +42,7 @@ tenant and switching to that account in VS Code when you want to run queries aga
 
 ## Client Integration
 
-### Which AI agents and LLM clients are supported?
+### Which clients are supported?
 
 The Azure Management MCP Server currently works with GitHub Copilot Chat in VS Code and GitHub
 Copilot CLI. We are working to expand usage to other clients in the future.
@@ -53,7 +53,7 @@ Copilot CLI. We are working to expand usage to other clients in the future.
 
 If the Azure Management MCP Server becomes temporarily unavailable:
 
-1. **Query and deployment operations will fail** with an error indicating connectivity or service
+1. **Tool calling operations will fail** with an error indicating connectivity or service
    unavailability.
 2. You will receive an error message in your AI chat or client interface.
 
@@ -61,14 +61,14 @@ If the Azure Management MCP Server becomes temporarily unavailable:
 ### Can I use this offline or in disconnected scenarios?
 
 No, the Azure Management MCP Server requires internet connectivity because it is a cloud-hosted
-remote service. All query and deployment operations must connect to the remote server to access
+remote service. All tool calling operations must connect to the remote server to access
 Azure APIs.
 
 ## Security & Data Handling
 
 ### What data does the remote server log or retain?
 
-The Azure Management MCP Server logs operational data for tracking tool calls, diagnostics, support,
+The Azure Management MCP Server captures operational data for tracking tool calls, diagnostics, support,
 and security. No input or output data from your tool calls are collected or stored by the server.
 
 ### Can I restrict which resources an agent can query or deploy?

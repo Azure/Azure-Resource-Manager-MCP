@@ -117,8 +117,9 @@ Conduct](https://opensource.microsoft.com/codeofconduct/). For more information,
 
 ## Transparency FAQ
 
-For more information about how the Azure Management MCP Server works, its limitations, and best
-practices for use, please refer to our [Transparency FAQ](./docs/TransparencyFAQ.md).
+For more information about how the Azure Management MCP Server AI capabilities works, its
+limitations, and best practices for use, please refer to our [Transparency
+FAQ](./docs/TransparencyFAQ.md).
 
 ## License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
