@@ -36,12 +36,20 @@ Below is a table showing the tools provided by the Azure Management MCP Server:
 | get_arm_template_deployment_status  | Subscription ID, resource group, deployment name | Current deployment status and details | Monitors deployment progress and outcome | Checking whether a deployment succeeded or failed |
 | cancel_arm_template_deployment  | Subscription ID, resource group, deployment name | Cancellation result | Stops an in-progress ARM template deployment | Halting a deployment after validation or policy concerns |
 
+## Supported Clients
+During this preview, Azure Management MCP Server can only be used with a set of MCP Clients. Right now you can use:
+- **GitHub Copilot Chat** in VS Code.
+- **GitHub Copilot CLI**
+
+Support for additional clients will be added based on user feedback and demand. If you have a
+specific client you'd like to see supported, please open an issue to let us know!
 
 ## Getting Started
 
 ### Prerequisites
 - VS Code installed 
 - Valid Azure Account
+- GitHub Copilot account 
 
 ### Installation
 
