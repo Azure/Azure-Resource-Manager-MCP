@@ -12,9 +12,10 @@ with ARM. The **Azure Management MCP Server** is designed to provide that access
 Context Protocol (MCP), the standard protocol agents use to perform actions and retrieve dynamic
 data.
 
-In practice, the **Azure Management MCP Server** equips agents with tools to generate, validate, and
+Today, the **Azure Management MCP Server** equips agents with tools to generate, validate, and
 execute Azure Resource Graph (ARG) queries, and to deploy and manage ARM templates. Its core purpose
-is to enable both AI agents to interact with Azure resources seamlessly, just like other ARM clients.
+is to enable both AI agents to interact with Azure resources seamlessly, just like other ARM
+clients. There will be expansion of many more capabilities in the future.
 
 ## Features
 The **Azure Management MCP Server** provides the following key features:
@@ -81,10 +82,11 @@ specific client you'd like to see supported, please open an issue to let us know
 
 ![Demo GIF](./docs/media/AzMgmtDemo.gif)
 
-## Troubleshooting
+## Troubleshooting & FAQ
 
 See the [Troubleshooting Guide](./docs/Troubleshooting.md) for common issues and solutions when
-using the Azure Management MCP Server.
+using the Azure Management MCP Server. For additional questions and answers, refer to the
+[FAQ](./docs/FAQ.md).
 
 ## Governance
 

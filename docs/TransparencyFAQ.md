@@ -9,10 +9,13 @@ information about your resources.
 
 ## What can Azure Management MCP Server do?
 
-Azure Management MCP Server provides three core capabilities:
+Azure Management MCP Server provides six core capabilities:
 - **Generate queries**: Convert natural language requests into valid ARG queries
 - **Validate queries**: Check queries for correctness, syntax, and security before execution
 - **Execute queries**: Runs queries against your Azure environment and returns results
+- **Create ARM template deployments**: Deploy infrastructure as code using ARM templates
+- **Get ARM template deployment status**: Check the progress and outcome of your deployments
+- **Cancel ARM template deployments**: Stop in-progress deployments if needed
 
 ## What are Azure Management MCP Server's intended uses?
 
@@ -20,6 +23,8 @@ The system is designed for Azure administrators, engineers, and operators who ne
 - Query resources and properties across their Azure environment
 - Support decision-making through real-time Azure data access
 - Reduce time spent learning ARG query syntax
+- Enable more users to interact with Azure resources through natural language
+- Easily deploy and manage infrastructure using ARM templates
 
 ## How was Azure Management MCP Server evaluated? What metrics are used to measure performance?
 
@@ -47,4 +52,3 @@ The system performs optimally when:
 - Your Azure credentials have appropriate permissions for queried resources
 - You review and validate generated queries before execution
 - You use the system within your organization's AI and Azure governance policies
-

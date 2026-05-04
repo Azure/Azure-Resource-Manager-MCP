@@ -14,17 +14,15 @@ Before deep troubleshooting, confirm the following:
 
 ### Personal account issues
 
-You try to sign in but see an error indicating you cannot sign in with personal accounts and are
-blocked from continuing. To fix this do the following:
+You may run into a `AADSTS500200` error when you try to sign in with a personal account.
 
-1. Invite the personal Microsoft account as a guest user in the tenant you want to access.
-2. Accept the guest invitation and complete onboarding for that tenant.
-3. Sign in again and verify tenant/subscription visibility.
+To resolve this:
+1. Use an organizational (work or school) account whenever possible.
+2. If you must use a personal Microsoft account, invite it as a guest user to the tenant you want to access.
+3. Accept the guest invitation and complete onboarding.
 
-We recommend you use organizational (work or school) accounts whenever possible. Organizational accounts generally
-provide a more predictable authentication and authorization experience across tenants and enterprise
-policies.
-
+Organizational accounts generally provide a more predictable authentication and authorization experience
+across tenants and enterprise policies. We recommend prioritizing organizational account access.
 ### Conditional Access
 
 If your tenant uses Conditional Access and Security Defaults are disabled, you may experience
