@@ -23,6 +23,7 @@ To resolve this:
 
 Organizational accounts generally provide a more predictable authentication and authorization experience
 across tenants and enterprise policies. We recommend prioritizing organizational account access.
+
 ### Conditional Access
 
 If your tenant uses Conditional Access and Security Defaults are disabled, you may experience
