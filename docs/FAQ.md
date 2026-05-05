@@ -30,22 +30,27 @@ To use the Azure Management MCP Server, you need:
 
 ### Do I need special permissions or roles in Azure to use the server?
 
-Your Azure role and permissions on the account you use are is what is determined for what the MCP
-server returns.
+The Azure Management MCP Server operates on behalf of the signed-in user in VS Code, so your Azure
+role and permissions on that account will determine what the MCP server can query or manage on your
+behalf.
 
 ### Can I use this with multiple Azure tenants?
 
 Currently you can only query one tenant at a time, there is no way to specify the particular tenant
 per the logged in user. The logged in account will default to the default tenant for that account.
 To work around this we suggest adding an account with subscription write access to the desired
-tenant and switching to that account in VS Code when you want to run queries against that tenant.
+tenant and switching to that account in VS Code when you want to run queries against that tenant. 
+
+This is a known limitation with VSCode, if you would like to support it please up-vote this issue:
+https://github.com/microsoft/vscode/issues/283453 Or submit a new one to the vscode repository.
 
 ## Client Integration
 
 ### Which clients are supported?
 
 The Azure Management MCP Server currently works with GitHub Copilot Chat in VS Code and GitHub
-Copilot CLI. We are working to expand usage to other clients in the future.
+Copilot CLI. We are working to expand usage to other clients in the future. Please open a discussion
+if you have a specific client you'd like to see supported!
 
 ## Reliability & Availability
 
@@ -57,6 +62,9 @@ If the Azure Management MCP Server becomes temporarily unavailable:
    unavailability.
 2. You will receive an error message in your AI chat or client interface.
 
+We are still in preview so there are no guarantees around uptime or availability, but we will work
+to resolve any issues as quickly as possible. Please open an issue if you encounter any availability
+problems.
 
 ### Can I use this offline or in disconnected scenarios?
 
