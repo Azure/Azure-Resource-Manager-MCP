@@ -1,6 +1,6 @@
-# Azure Management MCP Server
+# Azure Resource Manager MCP server
 
-This is a repository to track features, bugs, and suggestions for the Azure Management MCP Server.
+This is a repository to track features, bugs, and suggestions for the Azure Resource Manager MCP server.
 
 ## Overview
 Azure Resource Manager (ARM) is the control plane of Azure. Every operation that creates, updates,
@@ -8,17 +8,17 @@ or deletes Azure resources flows through ARM, regardless of whether it comes fro
 CLI, PowerShell, REST APIs, or SDKs.
 
 AI agents introduce a new kind of Azure client that needs a consistent, centralized way to interact
-with ARM. The **Azure Management MCP Server** is designed to provide that access layer through the Model
+with ARM. The **Azure Resource Manager MCP server** is designed to provide that access layer through the Model
 Context Protocol (MCP), the standard protocol agents use to perform actions and retrieve dynamic
 data.
 
-Today, the **Azure Management MCP Server** equips agents with tools to generate, validate, and
+Today, the **Azure Resource Manager MCP server** equips agents with tools to generate, validate, and
 execute Azure Resource Graph (ARG) queries, and to deploy and manage ARM templates. Its core purpose
 is to enable both AI agents to interact with Azure resources seamlessly, just like other ARM
 clients. There will be expansion of many more capabilities in the future.
 
 ## Features
-The **Azure Management MCP Server** provides the following key features:
+The **Azure Resource Manager MCP server** provides the following key features:
 - Generate ARG queries dynamically based on user or agent input.
 - Validate ARG queries for correctness and security.
 - Execute ARG queries against your Azure environment.
@@ -26,7 +26,7 @@ The **Azure Management MCP Server** provides the following key features:
 - Check ARM template deployment status.
 - Cancel ARM template deployments in progress.
 
-Below is a table showing the tools provided by the Azure Management MCP Server:
+Below is a table showing the tools provided by the Azure Resource Manager MCP server:
 
 | Tool            | Input                                      | Output                                      | Purpose                                      | Example AI Use Case                         |
 |-----------------|--------------------------------------------|---------------------------------------------|----------------------------------------------|---------------------------------------------|
@@ -38,7 +38,7 @@ Below is a table showing the tools provided by the Azure Management MCP Server:
 | cancel_arm_template_deployment  | Subscription ID, resource group, deployment name | Cancellation result | Stops an in-progress ARM template deployment | Halting a deployment after validation or policy concerns |
 
 ## Supported Clients
-During this preview, Azure Management MCP Server can only be used with a set of MCP Clients. Right now you can use:
+During this preview, Azure Resource Manager MCP server can only be used with a set of MCP Clients. Right now you can use:
 - **GitHub Copilot Chat** in VS Code.
 - **GitHub Copilot CLI**
 
@@ -55,9 +55,9 @@ specific client you'd like to see supported, please open an issue to let us know
 ### Installation
 
 #### 1. Installing the MCP Server
-1. Open: **https://aka.ms/JoinAzMgmtMCP**. VS Code will launch automatically. 
+1. Open: **https://aka.ms/JoinARMMCP**. VS Code will launch automatically. 
 
-2. When prompted inside VS Code, click **Install** under **Azure Management MCP Server** to add it to your MCP server configuration.
+2. When prompted inside VS Code, click **Install** under **Azure Resource Manager MCP server** to add it to your MCP server configuration.
 
 3. You will be prompted to sign in with your Azure credentials. 
 
@@ -65,7 +65,7 @@ specific client you'd like to see supported, please open an issue to let us know
 1. In VS Code, go to **View > Chat**, or click the chat icon to the right of the center toolbar
    header.
 2. In the Chat window, click the **Configure Tools** icon.  
-3. Ensure **Azure Management MCP Server** is checked. You can click the dropdown icon to see the available tools under
+3. Ensure **Azure Resource Manager MCP server** is checked. You can click the dropdown icon to see the available tools under
    it:
   - **execute_query**   
   - **generate_query**  
@@ -77,7 +77,7 @@ specific client you'd like to see supported, please open an issue to let us know
 ## Usage
 
 1. Open the Chat interface in VS Code.
-2. Ensure the Azure Management MCP Server tools are enabled.
+2. Ensure the Azure Resource Manager MCP server tools are enabled.
 3. Type your query or request in natural language.
 
 ![Demo GIF](./docs/media/AzMgmtDemo.gif)
@@ -85,12 +85,12 @@ specific client you'd like to see supported, please open an issue to let us know
 ## Troubleshooting & FAQ
 
 See the [Troubleshooting Guide](./docs/Troubleshooting.md) for common issues and solutions when
-using the Azure Management MCP Server. For additional questions and answers, refer to the
+using the Azure Resource Manager MCP server. For additional questions and answers, refer to the
 [FAQ](./docs/FAQ.md).
 
 ## Governance
 
-The Azure Management MCP Server uses the same authentication and authorization context as the
+The Azure Resource Manager MCP server uses the same authentication and authorization context as the
 signed-in user in VS Code. This means that all tool calls are made on behalf of that user and are
 subject to the same permissions and access controls defined in Azure.
 
@@ -117,7 +117,7 @@ Conduct](https://opensource.microsoft.com/codeofconduct/). For more information,
 
 ## Transparency FAQ
 
-For more information about how the Azure Management MCP Server AI capabilities works, its
+For more information about how the Azure Resource Manager MCP server AI capabilities works, its
 limitations, and best practices for use, please refer to our [Transparency
 FAQ](./docs/TransparencyFAQ.md).
 
@@ -125,7 +125,7 @@ FAQ](./docs/TransparencyFAQ.md).
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Data Collection
-The Azure Management MCP server does not collect any personally identifiable information. We collect
+The Azure Resource Manager MCP server does not collect any personally identifiable information. We collect
 minimal operational telemetry to capture amount of times a tool is called and service uptime. Our
 privacy statement is located at https://go.microsoft.com/fwlink/?LinkID=824704.
 

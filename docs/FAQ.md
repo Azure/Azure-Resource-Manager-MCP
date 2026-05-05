@@ -1,9 +1,9 @@
-# Azure Management MCP Server - Frequently Asked Questions
-This FAQ provides answers to common questions about the Azure Management MCP Server, including its
+# Azure Resource Manager MCP server - Frequently Asked Questions
+This FAQ provides answers to common questions about the Azure Resource Manager MCP server, including its
 features, usage, troubleshooting, and governance. If you have a question that is not answered here,
 please open an issue to ask or suggest improvements to this FAQ!
 
-## What is the difference between Azure Management MCP Server and Azure MCP Server?
+## What is the difference between Azure Resource Manager MCP server and Azure MCP Server?
 
 The Azure ecosystem includes two MCP servers with complementary roles:
 
@@ -11,7 +11,7 @@ The Azure ecosystem includes two MCP servers with complementary roles:
 - Local MCP server that runs on the client machine.
 - Provides a gateway to broader Azure tools and services.
 
-**Azure Management MCP Server**
+**Azure Resource Manager MCP server**
 - Remote MCP server that runs in the cloud.
 - Provides direct access to Azure Resource Manager (ARM) APIs and operations.
 
@@ -19,18 +19,18 @@ Both can easily work together to meet your agentic needs!
 
 ## Setup & Requirements
 
-### What are the minimum requirements to use the Azure Management MCP Server?
+### What are the minimum requirements to use the Azure Resource Manager MCP server?
 
-To use the Azure Management MCP Server, you need:
+To use the Azure Resource Manager MCP server, you need:
 
 1. **VS Code** installed on your client machine.
 2. **A valid Azure Account** with access to at least one Azure tenant and subscription.
-3. **Internet connectivity** to reach the cloud-hosted Azure Management MCP Server.
+3. **Internet connectivity** to reach the cloud-hosted Azure Resource Manager MCP server.
 4. An MCP-compatible AI agent or chat interface in VS Code (such as GitHub Copilot Chat).
 
 ### Do I need special permissions or roles in Azure to use the server?
 
-The Azure Management MCP Server operates on behalf of the signed-in user in VS Code, so your Azure
+The Azure Resource Manager MCP server operates on behalf of the signed-in user in VS Code, so your Azure
 role and permissions on that account will determine what the MCP server can query or manage on your
 behalf.
 
@@ -48,7 +48,7 @@ https://github.com/microsoft/vscode/issues/283453 Or submit a new one to the vsc
 
 ### Which clients are supported?
 
-The Azure Management MCP Server currently works with GitHub Copilot Chat in VS Code and GitHub
+The Azure Resource Manager MCP server currently works with GitHub Copilot Chat in VS Code and GitHub
 Copilot CLI. We are working to expand usage to other clients in the future. Please open a discussion
 if you have a specific client you'd like to see supported!
 
@@ -56,7 +56,7 @@ if you have a specific client you'd like to see supported!
 
 ### What happens if the remote server is unavailable?
 
-If the Azure Management MCP Server becomes temporarily unavailable:
+If the Azure Resource Manager MCP server becomes temporarily unavailable:
 
 1. **Tool calling operations will fail** with an error indicating connectivity or service
    unavailability.
@@ -68,7 +68,7 @@ problems.
 
 ### Can I use this offline or in disconnected scenarios?
 
-No, the Azure Management MCP Server requires internet connectivity because it is a cloud-hosted
+No, the Azure Resource Manager MCP server requires internet connectivity because it is a cloud-hosted
 remote service. All tool calling operations must connect to the remote server to access
 Azure APIs.
 
@@ -76,14 +76,14 @@ Azure APIs.
 
 ### What data does the remote server log or retain?
 
-The Azure Management MCP Server captures operational data for tracking tool calls, diagnostics, support,
+The Azure Resource Manager MCP server captures operational data for tracking tool calls, diagnostics, support,
 and security. No input or output data from your tool calls are collected or stored by the server.
 
 ### Can I restrict which resources an agent can query or deploy?
 
-The Azure Management MCP Server respects Azure's authorization layer—if your account lacks
+The Azure Resource Manager MCP server respects Azure's authorization layer—if your account lacks
 permissions to query or deploy a resource, the server will deny the operation.
 
-You can explicitly block any deployment from the Azure Management MCP Server by applying an Azure
+You can explicitly block any deployment from the Azure Resource Manager MCP server by applying an Azure
 Policy that denies deployments from that service, see the [README
 Governance](./README.md#governance) for more details.

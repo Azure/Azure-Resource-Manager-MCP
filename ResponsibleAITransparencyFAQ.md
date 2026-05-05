@@ -1,15 +1,15 @@
-# Azure Management MCP Server: Transparency FAQ
+# Azure Resource Manager MCP server: Transparency FAQ
 
-## What is Azure Management MCP Server?
+## What is Azure Resource Manager MCP server?
 
-Azure Management MCP Server is an AI-assisted tool that helps you query and manage your Azure
+Azure Resource Manager MCP server is an AI-assisted tool that helps you query and manage your Azure
 resources using natural language. It takes your questions or requirements in plain English and
 converts them into Azure Resource Graph (ARG) queries—the language Azure uses to find and retrieve
 information about your resources.
 
-## What can Azure Management MCP Server do?
+## What can Azure Resource Manager MCP server do?
 
-Azure Management MCP Server provides six core capabilities:
+Azure Resource Manager MCP server provides six core capabilities:
 - **Generate queries**: Convert natural language requests into valid ARG queries
 - **Validate queries**: Check queries for correctness, syntax, and security before execution
 - **Execute queries**: Runs queries against your Azure environment and returns results
@@ -17,7 +17,7 @@ Azure Management MCP Server provides six core capabilities:
 - **Get ARM template deployment status**: Check the progress and outcome of your deployments
 - **Cancel ARM template deployments**: Stop in-progress deployments if needed
 
-## What are Azure Management MCP Server's intended uses?
+## What are Azure Resource Manager MCP server's intended uses?
 
 The system is designed for Azure administrators, engineers, and operators who need to:
 - Query resources and properties across their Azure environment
@@ -26,13 +26,13 @@ The system is designed for Azure administrators, engineers, and operators who ne
 - Enable more users to interact with Azure resources through natural language
 - Easily deploy and manage infrastructure using ARM templates
 
-## How was Azure Management MCP Server evaluated? What metrics are used to measure performance?
+## How was Azure Resource Manager MCP server evaluated? What metrics are used to measure performance?
 
 The system has been evaluated on the ability to provide syntactically correct ARG queries, the
 relevance of generated queries to user prompts, and feedback given through the Azure Copilot
 experience in the Azure Portal.
 
-## What are the limitations of Azure Management MCP Server? How can users minimize impact?
+## What are the limitations of Azure Resource Manager MCP server? How can users minimize impact?
 
 **Limitations:**
 - The system generates queries based on ARG capabilities; requests outside ARG scope cannot be fulfilled

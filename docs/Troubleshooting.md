@@ -1,12 +1,12 @@
 ## Troubleshooting Guide
 
-This guide covers common issues customers may encounter when using the Azure Management MCP Server, with practical steps to diagnose and resolve them.
+This guide covers common issues customers may encounter when using the Azure Resource Manager MCP server, with practical steps to diagnose and resolve them.
 
 ## Quick Checks
 
 Before deep troubleshooting, confirm the following:
 
-1. The Azure Management MCP Server is installed and enabled in VS Code.
+1. The Azure Resource Manager MCP server is installed and enabled in VS Code.
 2. You are signed in with an account that you have access to the intended Azure tenant and subscriptions.
 3. The required tools are enabled in the MCP server configuration.
 
