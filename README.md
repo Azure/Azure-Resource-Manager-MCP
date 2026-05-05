@@ -124,6 +124,11 @@ FAQ](./docs/TransparencyFAQ.md).
 ## License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
+## Data Collection
+The Azure Management MCP server does not collect any personally identifiable information. We collect
+minimal operational telemetry to capture amount of times a tool is called and service uptime. Our
+privacy statement is located at https://go.microsoft.com/fwlink/?LinkID=824704.
+
 ## Trademarks
 
 This project may contain trademarks or logos for projects, products, or services. Authorized use of
