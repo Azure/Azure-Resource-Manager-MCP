@@ -16,13 +16,36 @@ Before deep troubleshooting, confirm the following:
 
 You may run into a `AADSTS500200` error when you try to sign in with a personal account.
 
-To resolve this:
-1. Use an organizational (work or school) account whenever possible.
-2. If you must use a personal Microsoft account, invite it as a guest user to the tenant you want to access.
-3. Accept the guest invitation and complete onboarding.
+The first easy way to solve this is to switch to an organizational account that has access to the Azure tenant you want to query. 
 
-Organizational accounts generally provide a more predictable authentication and authorization experience
-across tenants and enterprise policies. We recommend prioritizing organizational account access.
+If you don't have one, you can invite your personal account as a guest user to the tenant and use it that way.
+
+1. Invite the user as a guest user to the tenant you want to access.`
+3. Accept the guest invitation
+4. Make sure the account has Write permissions on the subscription you want to query against.
+5. When you sign in choose "Sign in Options"
+
+![Step 1](./media/step1.png)
+
+6. Choose "Sign in to an organization" 
+
+![Step 2](./media/step2.png)
+
+7. Enter the domain of your organization
+
+![Step 3](./media/step3.png)
+
+9. Select add a new account 
+
+![Step 4](./media/step4.png)
+
+10. Sign in with the email of the guest account you created
+
+![Step 5](./media/step5.png)
+
+Organizational accounts generally provide a more predictable authentication and authorization
+experience across tenants and enterprise policies. We recommend prioritizing organizational account
+access.
 
 ### Conditional Access
 
