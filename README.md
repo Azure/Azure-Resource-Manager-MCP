@@ -80,7 +80,15 @@ specific client you'd like to see supported, please open an issue to let us know
 2. Ensure the Azure Resource Manager MCP server tools are enabled.
 3. Type your query or request in natural language.
 
-![Demo GIF](./docs/media/AzMgmtDemo.gif)
+![Demo GIF](./docs/media/ARMMCP_Install_Demo.gif)
+
+### Demo using the ARG tools
+
+![Demo using the read tools](./docs/media/ARMMCP_Read_Demo.gif)
+
+### Demo using the Deployment tools
+
+![Demo of deployment tools](./docs/media/ARMMCP_Deploy_demo.gif)
 
 ## Troubleshooting & FAQ
 
