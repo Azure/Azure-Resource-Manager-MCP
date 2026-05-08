@@ -13,9 +13,10 @@ Context Protocol (MCP), the standard protocol agents use to perform actions and 
 data.
 
 Today, the **Azure Resource Manager MCP server** equips agents with tools to generate, validate, and
-execute Azure Resource Graph (ARG) queries, and to deploy and manage ARM templates. Its core purpose
-is to enable both AI agents to interact with Azure resources seamlessly, just like other ARM
-clients. There will be expansion of many more capabilities in the future.
+execute Azure Resource Graph (ARG) queries, and to deploy and manage ARM templates. The MCP server is able 
+to query **all your Azure resource types!**. Its core purpose is to enable both AI agents to interact with 
+Azure resources seamlessly, just like other ARM clients. There will be expansion of many more capabilities 
+in the future.
 
 ## Features
 The **Azure Resource Manager MCP server** provides the following key features:
