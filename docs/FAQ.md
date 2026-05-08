@@ -15,7 +15,8 @@ The Azure ecosystem includes two MCP servers with complementary roles:
 - Remote MCP server that runs in the cloud.
 - Provides direct access to Azure Resource Manager (ARM) APIs and operations.
 
-Both can easily work together to meet your agentic needs!
+Azure MCP will be integrating a number of the ARM MCP tools into their experience as well so you can get both capabilities in one. 
+Pick and choose which tools best fit your agentic development needs!
 
 ## Setup & Requirements
 
