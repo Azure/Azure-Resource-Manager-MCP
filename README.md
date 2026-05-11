@@ -122,13 +122,13 @@ address your problems!
 
 This project has adopted the [Microsoft Open Source Code of
 Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the
-[CODE_OF_CONDUCT.md](./docs/CODE_OF_CONDUCT.md) file.
+[CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) file.
 
 ## Transparency FAQ
 
 For more information about how the Azure Resource Manager MCP server AI capabilities works, its
 limitations, and best practices for use, please refer to our [Transparency
-FAQ](./docs/TransparencyFAQ.md).
+FAQ](./ResponsibleAITransparencyFAQ.md).
 
 ## License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

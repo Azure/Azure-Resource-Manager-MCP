@@ -87,4 +87,4 @@ permissions to query or deploy a resource, the server will deny the operation.
 
 You can explicitly block any deployment from the Azure Resource Manager MCP server by applying an Azure
 Policy that denies deployments from that service, see the [README
-Governance](./README.md#governance) for more details.
+Governance](../README.md#governance) for more details.
