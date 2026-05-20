@@ -82,8 +82,8 @@ Edit `~/.copilot/mcp-config.json` and add (or update) the server entry with `hea
 ```
 
 Restart the MCP server to pick up the change. In Copilot CLI today this means
-exiting and relaunching `copilot`. Verify the server is running with
-`copilot mcp list`.
+exiting and relaunching `copilot`. Verify the server is running with the
+`/mcp show` slash command inside `copilot`.
 
 ## Cost Management tools
 
