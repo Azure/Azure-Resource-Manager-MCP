@@ -57,7 +57,7 @@ Add (or update) the Azure Resource Manager MCP server entry with `headers`:
 }
 ```
 
-Save the file, then reconnect the server: open the Command Palette and run
+Save the file, then restart the server: open the Command Palette and run
 **MCP: List Servers**, pick `azure-resource-manager-mcp`, and choose **Restart**.
 The new tools will appear under **Configure Tools** in Chat.
 
