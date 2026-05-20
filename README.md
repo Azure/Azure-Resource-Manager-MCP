@@ -40,16 +40,14 @@ Below is a table showing the tools provided by the Azure Resource Manager MCP se
 
 ### Optional toolsets
 
-Additional tools are grouped into **toolsets** that you can opt into per client
-by sending the `x-mcp-toolset` header on the MCP connection. The tools above
-are always on; the toolsets below are off by default. To enable one or more,
-add `"headers": { "x-mcp-toolset": "<comma-separated values>" }` to the Azure
-Resource Manager MCP server entry in your client's MCP configuration.
+Additional toolsets ship off by default and can be turned on per client. Today
+the server offers a **Cost Management & Pricing** toolset that lets agents
+answer cost, budget, savings, and pricing questions in natural language —
+for example *"What did I spend on Azure this month, broken down by service?"*
+or *"How much would a Standard_E4s_v5 VM cost in East US?"*
 
-| Toolset          | Header value     | Docs                                                                       |
-|------------------|------------------|----------------------------------------------------------------------------|
-| Cost Management  | `CostManagement` | [Cost Management & Pricing tools](./docs/CostManagementAndPricingTools.md) |
-| Pricing          | `Pricing`        | [Cost Management & Pricing tools](./docs/CostManagementAndPricingTools.md) |
+See [Cost Management & Pricing tools](./docs/CostManagementAndPricingTools.md)
+for the tool list, setup, and example prompts.
 
 ## Supported Clients
 During this preview, Azure Resource Manager MCP server can only be used with a set of MCP Clients. Right now you can use:
