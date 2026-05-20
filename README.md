@@ -40,8 +40,8 @@ Below is a table showing the tools provided by the Azure Resource Manager MCP se
 
 ### Optional toolsets
 
-Additional toolsets ship off by default and can be turned on per client. Today
-the server offers a **Cost Management & Pricing** toolset that lets agents
+Additional toolsets are shipped off by default and can be turned on per client. Today
+the server offers a **Cost Management** & **Pricing** toolset that lets agents
 answer cost, budget, savings, and pricing questions in natural language —
 for example *"What did I spend on Azure this month, broken down by service?"*
 or *"How much would a Standard_E4s_v5 VM cost in East US?"*
