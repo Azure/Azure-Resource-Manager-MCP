@@ -149,7 +149,7 @@ Asking *"How much would an Av2 VM cost per month in East US?"* — the agent cal
 
 ## Feedback
 
-Have general feedback, opinions, or thoughts on the Cost Management & Pricing tools?
-Share them via [aka.ms/azurecost/mcptools/give/feedback](https://aka.ms/azurecost/mcptools/give/feedback).
+Tell us how these tools are working for you—your feedback helps improve Cost Management & Pricing tools.
+Share your thoughts via [aka.ms/azurecost/mcptools/give/feedback](https://aka.ms/azurecost/mcptools/give/feedback).
 
 Found a bug or have a specific feature request? Please [open a GitHub issue](https://github.com/Azure/Azure-Resource-Manager-MCP/issues/new/choose) instead — that's the best way to get it tracked and fixed.
