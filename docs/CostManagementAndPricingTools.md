@@ -146,3 +146,8 @@ Asking *"How much would an Av2 VM cost per month in East US?"* — the agent cal
 (Regular vs Spot, Linux vs Windows):
 
 ![End-to-end demo: typing a pricing prompt in VS Code Chat, the agent invoking get_retail_prices on the ARM MCP server, and returning a pricing table for Standard_A2_v2 in East US](media/ARMMCP_Pricing_Prompt_Demo.gif)
+
+## Feedback
+
+These tools are evolving — bug reports, missing scenarios, and ideas are very welcome.
+Please share feedback via [aka.ms/azurecost/mcptools/give/feedback](https://aka.ms/azurecost/mcptools/give/feedback).
