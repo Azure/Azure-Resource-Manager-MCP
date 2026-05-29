@@ -38,6 +38,17 @@ Below is a table showing the tools provided by the Azure Resource Manager MCP se
 | get_arm_template_deployment_status  | Subscription ID, resource group, deployment name | Current deployment status and details | Monitors deployment progress and outcome | Checking whether a deployment succeeded or failed |
 | cancel_arm_template_deployment  | Subscription ID, resource group, deployment name | Cancellation result | Stops an in-progress ARM template deployment | Halting a deployment after validation or policy concerns |
 
+### Optional toolsets
+
+Additional toolsets are shipped off by default and can be turned on per client. Today
+the server offers a **Cost Management** & **Pricing** toolset that lets agents
+answer cost, budget, savings, and pricing questions in natural language —
+for example *"What did I spend on Azure this month, broken down by service?"*
+or *"How much would a Standard_E4s_v5 VM cost in East US?"*
+
+See [Cost Management & Pricing tools](./docs/CostManagementAndPricingTools.md)
+for the tool list, setup, and example prompts.
+
 ## Supported Clients
 During this preview, Azure Resource Manager MCP server can only be used with a set of MCP Clients. Right now you can use:
 - **GitHub Copilot Chat** in VS Code.
