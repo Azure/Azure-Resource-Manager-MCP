@@ -57,6 +57,11 @@ During this preview, Azure Resource Manager MCP server can only be used with a s
 Support for additional clients will be added based on user feedback and demand. If you have a
 specific client you'd like to see supported, please open an issue to let us know!
 
+### Other client support
+
+For 3rd-party client setup details (app registration, manifest permissions, redirect URI, service principal
+creation, and connector configuration), see [Other client support](./docs/OtherClientSupport.md).
+
 ## Getting Started
 
 ### Prerequisites
@@ -156,4 +161,3 @@ Microsoft trademarks or logos is subject to and must follow [Microsoft’s Trade
 Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Use of Microsoft trademarks or logos in modified versions of this project must not cause
 confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to
 those third-party’s policies.
-
