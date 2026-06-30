@@ -42,7 +42,7 @@ Open up CloudShell and use the following command to create service principals:
 az ad sp create --id 22bfbae3-f4e7-485f-be43-8cee15065084
 ```
 
-![Service Principals](../docs/media/ServicePrincipals.png)
+![Service Principals](../docs/media/ServicePrincipalCreate.png)
 
 ## 5. Create a client secret
 
