@@ -20,45 +20,64 @@ Manually add the following entries:
         "type": "Scope"
       }
     ]
-  },
-  {
-    "resourceAppId": "1c167cbf-701e-4941-bf1e-98162a419003",
-    "resourceAccess": [
-      {
-        "id": "31d0c4b9-dc46-49bc-a512-c307ba90248e",
-        "type": "Scope"
-      }
-    ]
   }
 ]
 ```
 
-After saving the manifest, the **API permissions** page should show both required delegated scopes.
+After saving the manifest, the **API permissions** page should look like this:
+
+![API Permissions](../docs/media/APIPermissions.jpeg)
 
 ## 3. Configure redirect URI
 
-Set the required **Redirect URI** on the app registration for your client environment.
+Under App Registration><your-app-registration>>Manage>Authentication (Preview), add a Web Redirect URI to `https://claude.ai/api/mcp/auth_callback/`.
+
+![Redirect URI](../docs/media/RedirectURI.jpeg)
 
 ## 4. Create service principals
 
-Create service principals for each app registration ID (use separate IDs for test and production):
+Open up CloudShell and use the following command to create service principals:
 
 ```bash
-az ad sp create --id <test-app-registration-id>
-az ad sp create --id <prod-app-registration-id>
+az ad sp create --id 22bfbae3-f4e7-485f-be43-8cee15065084
 ```
+
+![Service Principals](../docs/media/ServicePrincipals.png)
 
 ## 5. Create a client secret
 
-Create a new client secret and copy the **secret value** (not the secret ID).
+Create a new client secret under App Registration><your app registration>>Manage>Certificates and secrets>Client secrets. Copy the **secret value** (not the secret ID).
 
-Use this value in your Claude Code custom connector definition.
+You will use this value in your Claude Code custom connector definition.
 
-## 6. Set in-tenant connector values
+## 6. Set configuration for Claude Code
 
-Configure the connector with your own in-tenant settings:
+Now use the ARM MCP endpoint, Application ID, the Client Secret to configure your Claude custom connector.
 
-- Tenant ID
-- Client ID
-- Redirect URI
-- Client secret value
+![Claude Code Configuration](../docs/media/ClaudeConfiguration.png)
+
+## 7. Logging in
+
+You will then have to connect the tool to your Azure account. Choose "Connect" and follow the prompts to sign in.
+
+**Note:** The account you use must have at least Owner permissions on at least one subscription for the tools to work properly. The account will always default to the home tenant of the account.
+
+To switch the tenant you want to use you will have to disconnect the current account and sign in a different way:
+
+When re-connecting to the tool, during the sign-in process:
+1. Choose "Other Sign in option" 
+![Sign in another way](../docs/media/step1.png)
+or if you have accounts saved already choose "Sign in with another account"
+![Sign in with another account](../docs/media/step4.png)
+
+3. Choose "Sign in to an organization" 
+![Sign in to an organization](../docs/media/step2.png)
+
+4. Enter your domain name
+![Sign into domain](../docs/media/step3.png)
+
+5. Select the account to log in to 
+![Select account](../docs/media/step4.png)
+
+
+
