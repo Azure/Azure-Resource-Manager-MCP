@@ -17,7 +17,7 @@ Azure Resource Manager MCP server provides these core capabilities:
 - **Manage Azure resources**: Create or update individual resources and resource groups
 - **Inspect resource types**: Discover resource types, current API versions, and JSON schemas
 - **Analyze costs**: Query Azure cost and usage data, including AKS cost breakdowns
-- **Retrieve pricing**: Look up public retail prices and download EA or MCA pricesheets
+- **Retrieve pricing**: Look up public retail prices and obtain time-limited download URLs for EA or MCA pricesheets
 
 ## What are Azure Resource Manager MCP server's intended uses?
 
