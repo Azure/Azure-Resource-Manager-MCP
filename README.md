@@ -38,16 +38,21 @@ Below is a table showing the tools provided by the Azure Resource Manager MCP se
 | get_arm_template_deployment_status  | Subscription ID, resource group, deployment name | Current deployment status and details | Monitors deployment progress and outcome | Checking whether a deployment succeeded or failed |
 | cancel_arm_template_deployment  | Subscription ID, resource group, deployment name | Cancellation result | Stops an in-progress ARM template deployment | Halting a deployment after validation or policy concerns |
 
-### Optional toolsets
+### Cost Management & Pricing tools
 
-Additional toolsets are shipped off by default and can be turned on per client. Today
-the server offers a **Cost Management** & **Pricing** toolset that lets agents
-answer cost, budget, savings, and pricing questions in natural language —
-for example *"What did I spend on Azure this month, broken down by service?"*
+Several Cost Management & Pricing tools are **enabled by default** and need no
+extra configuration — `query_costs`, `query_aks_costs`, `get_retail_prices`,
+`start_pricesheet_download`, and `get_pricesheet_status`. They let agents answer
+questions like *"What did I spend on Azure this month, broken down by service?"*
 or *"How much would a Standard_E4s_v5 VM cost in East US?"*
 
+The remaining Cost Management tools — cost forecasting, dimensions, budgets,
+alerts, and reservation/savings-plan insights — ship as an optional
+**Cost Management** toolset you can turn on per client with the
+`x-mcp-toolset: CostManagement` header.
+
 See [Cost Management & Pricing tools](./docs/CostManagementAndPricingTools.md)
-for the tool list, setup, and example prompts.
+for the full tool list, setup, and example prompts.
 
 ## Supported Clients
 During this preview, Azure Resource Manager MCP server can only be used with a set of MCP Clients. Right now you can use:

@@ -1,10 +1,15 @@
 # Cost Management & Pricing tools
 
-The Azure Resource Manager MCP server ships an optional **Cost Management & Pricing**
+The Azure Resource Manager MCP server ships a **Cost Management & Pricing**
 tool surface that lets agents answer cost, budget, savings, and pricing questions
 in natural language, on behalf of the signed-in user.
 
-These tools are **off by default** — enable them per client (see below).
+A core set of these tools is **enabled by default** — `query_costs`,
+`query_aks_costs`, `get_retail_prices`, `start_pricesheet_download`, and
+`get_pricesheet_status` work with no extra configuration. The remaining Cost
+Management tools (forecasting, dimensions, budgets, alerts, and
+reservation/savings-plan insights) are opt-in via the `CostManagement` toolset —
+enable them per client (see [Enabling the Cost Management toolset](#enabling-the-cost-management-toolset)).
 
 ## What you can ask
 
@@ -17,18 +22,20 @@ Once enabled, you can ask the agent things like:
 
 ## Toolsets
 
-The server groups tools into **toolsets**:
+Some tools are **enabled by default**; the rest live in an optional
+`CostManagement` toolset:
 
-| Toolset          | What it includes                                                |
-|------------------|-----------------------------------------------------------------|
-| `CostManagement` | Cost & usage queries, budgets, alerts, savings, AKS cost split  |
-| `Pricing`        | Public retail prices and negotiated pricesheet downloads        |
+| Availability | Tools |
+|--------------|-------|
+| **Enabled by default** (no header) | `query_costs`, `query_aks_costs`, `get_retail_prices`, `start_pricesheet_download`, `get_pricesheet_status` |
+| **`CostManagement` toolset** (opt-in) | `forecast_costs`, `list_dimensions`, `list_budgets`, `get_budget`, `create_budget`, `list_alerts`, `list_benefit_utilization`, `get_benefit_recommendations`, `list_reservation_transactions` |
 
-## Enabling the toolsets
+## Enabling the Cost Management toolset
 
-Opt in per client by adding the `x-mcp-toolset` header on the MCP connection to
-the Azure Resource Manager MCP server. The header value is a comma-separated list
-of toolset names — enable one or both, e.g. `x-mcp-toolset: CostManagement,Pricing`.
+The default tools above need no configuration. To also enable the optional Cost
+Management tools (forecasting, dimensions, budgets, alerts, and
+reservation/savings-plan insights), add the `x-mcp-toolset: CostManagement`
+header on the MCP connection to the Azure Resource Manager MCP server.
 
 ### VS Code (GitHub Copilot Chat)
 
@@ -50,7 +57,7 @@ Add (or update) the Azure Resource Manager MCP server entry with `headers`:
       "type": "http",
       "url": "https://mcp.management.azure.com",
       "headers": {
-        "x-mcp-toolset": "CostManagement,Pricing"
+        "x-mcp-toolset": "CostManagement"
       }
     }
   }
@@ -74,7 +81,7 @@ Edit `~/.copilot/mcp-config.json` and add (or update) the server entry with `hea
       "type": "http",
       "url": "https://mcp.management.azure.com",
       "headers": {
-        "x-mcp-toolset": "CostManagement,Pricing"
+        "x-mcp-toolset": "CostManagement"
       }
     }
   }
@@ -87,7 +94,9 @@ exiting and relaunching `copilot`. Verify the server is running with the
 
 ## Cost Management tools
 
-Toolset: `CostManagement`
+`query_costs` and `query_aks_costs` are **enabled by default**. The remaining
+tools in this section require the `CostManagement` toolset header (see
+[Enabling the Cost Management toolset](#enabling-the-cost-management-toolset)).
 
 The **Scopes** column shows which Azure scope types each tool accepts:
 
@@ -107,8 +116,8 @@ calling each subscription individually.
 
 | Tool | Scope | Input | Output | Purpose | Example AI Use Case |
 |------|-------|-------|--------|---------|---------------------|
-| `query_costs` | Subscription, Management group, Billing | Timeframe (or from/to), granularity, groupBy dimensions, optional filter, metric | Cost & usage rows (up to 100) | Query actual or amortized Azure cost and usage data | "What did I spend this month, broken down by service?" |
-| `query_aks_costs` | Subscription only — no RG | Timeframe (or from/to), granularity, groupBy dimensions, optional filter, metric | AKS container-level cost rows (up to 100) | Break down AKS costs by cluster, namespace, idle vs service utilization, and service category | "Which AKS namespace cost the most last month?" |
+| `query_costs` *(default)* | Subscription, Management group, Billing | Timeframe (or from/to), granularity, groupBy dimensions, optional filter, metric | Cost & usage rows (up to 100) | Query actual or amortized Azure cost and usage data | "What did I spend this month, broken down by service?" |
+| `query_aks_costs` *(default)* | Subscription only — no RG | Timeframe (or from/to), granularity, groupBy dimensions, optional filter, metric | AKS container-level cost rows (up to 100) | Break down AKS costs by cluster, namespace, idle vs service utilization, and service category | "Which AKS namespace cost the most last month?" |
 | `forecast_costs` | Subscription, Management group, Billing | From, to, granularity, metric | Actual + forecasted cost rows through end of period (up to 100) | Forecast Azure cost for the current or a custom period | "What will my subscription cost by end of month?" |
 | `list_dimensions` | Subscription, Management group, Billing | — | Supported cost dimensions for the scope | Discover dimensions available for grouping or filtering cost queries | "What dimensions can I group costs by?" |
 
@@ -131,13 +140,13 @@ calling each subscription individually.
 
 ## Pricing tools
 
-Toolset: `Pricing`
+These pricing tools are **enabled by default** — no toolset header required.
 
 | Tool | Scope | Input | Output | Purpose | Example AI Use Case |
 |------|-------|-------|--------|---------|---------------------|
-| `get_retail_prices` | Public — no scope, no auth | Optional service name, ARM SKU, region, meter name, price type, currency | Public retail price records (consumption, reservation, savings plan, dev/test) | Look up public Azure retail (pay-as-you-go) pricing | "How much is a Standard_D4s_v5 VM in East US?" |
-| `start_pricesheet_download` | Billing | Agreement type (EA / MCA billing profile / MCA invoice), billing period (EA only) | Operation status URL to poll | Kick off an asynchronous download of your negotiated pricesheet | "Start downloading our enterprise pricesheet for April 2025." |
-| `get_pricesheet_status` | n/a (operation URL) | Operation status URL from `start_pricesheet_download` | In-progress status (with retry-after) or a time-limited SAS download URL | Poll a pricesheet download until the SAS URL is ready | "Is the pricesheet I requested ready yet?" |
+| `get_retail_prices` *(default)* | Public — no scope, no auth | Optional service name, ARM SKU, region, meter name, price type, currency | Public retail price records (consumption, reservation, savings plan, dev/test) | Look up public Azure retail (pay-as-you-go) pricing | "How much is a Standard_D4s_v5 VM in East US?" |
+| `start_pricesheet_download` *(default)* | Billing | Agreement type (EA / MCA billing profile / MCA invoice), billing period (EA only) | Operation status URL to poll | Kick off an asynchronous download of your negotiated pricesheet | "Start downloading our enterprise pricesheet for April 2025." |
+| `get_pricesheet_status` *(default)* | n/a (operation URL) | Operation status URL from `start_pricesheet_download` | In-progress status (with retry-after) or a time-limited SAS download URL | Poll a pricesheet download until the SAS URL is ready | "Is the pricesheet I requested ready yet?" |
 
 ## Example: a pricing prompt end-to-end
 
