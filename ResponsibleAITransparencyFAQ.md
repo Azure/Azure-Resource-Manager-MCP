@@ -3,19 +3,21 @@
 ## What is Azure Resource Manager MCP server?
 
 Azure Resource Manager MCP server is an AI-assisted tool that helps you query and manage your Azure
-resources using natural language. It takes your questions or requirements in plain English and
-converts them into Azure Resource Graph (ARG) queries—the language Azure uses to find and retrieve
-information about your resources.
+resources using natural language. It can translate requests into Azure Resource Graph (ARG) queries,
+manage ARM deployments and resources, inspect resource type metadata, and retrieve Azure cost and
+pricing information.
 
 ## What can Azure Resource Manager MCP server do?
 
-Azure Resource Manager MCP server provides six core capabilities:
-- **Generate queries**: Convert natural language requests into valid ARG queries
-- **Validate queries**: Check queries for correctness, syntax, and security before execution
-- **Execute queries**: Runs queries against your Azure environment and returns results
-- **Create ARM template deployments**: Deploy infrastructure as code using ARM templates
-- **Get ARM template deployment status**: Check the progress and outcome of your deployments
-- **Cancel ARM template deployments**: Stop in-progress deployments if needed
+Azure Resource Manager MCP server provides these core capabilities:
+- **Query Azure resources**: Generate, validate, and execute ARG queries
+- **Preview ARM deployments**: Show the changes an ARM template deployment would make
+- **Manage ARM deployments**: Create, monitor, and cancel resource group deployments
+- **Monitor asynchronous operations**: Check the status of long-running ARM resource operations
+- **Manage Azure resources**: Create or update individual resources and resource groups
+- **Inspect resource types**: Discover resource types, current API versions, and JSON schemas
+- **Analyze costs**: Query Azure cost and usage data, including AKS cost breakdowns
+- **Retrieve pricing**: Look up public retail prices and obtain time-limited download URLs for EA or MCA pricesheets
 
 ## What are Azure Resource Manager MCP server's intended uses?
 
@@ -24,7 +26,8 @@ The system is designed for Azure administrators, engineers, and operators who ne
 - Support decision-making through real-time Azure data access
 - Reduce time spent learning ARG query syntax
 - Enable more users to interact with Azure resources through natural language
-- Easily deploy and manage infrastructure using ARM templates
+- Deploy and manage infrastructure using ARM templates or direct resource operations
+- Analyze Azure costs and compare public or negotiated pricing
 
 ## How was Azure Resource Manager MCP server evaluated? What metrics are used to measure performance?
 
@@ -35,13 +38,15 @@ experience in the Azure Portal.
 ## What are the limitations of Azure Resource Manager MCP server? How can users minimize impact?
 
 **Limitations:**
-- The system generates queries based on ARG capabilities; requests outside ARG scope cannot be fulfilled
-- Query results depend on your Azure permissions—the system can only return data you have access to
+- ARG queries are limited to resources and properties indexed by Azure Resource Graph
+- Results and resource operations depend on your Azure permissions
 - Natural language interpretation may occasionally produce unexpected query structures
+- Retail prices are public list prices and may differ from negotiated prices
 
 **How to minimize impact:**
 - Review generated queries before execution or ask the system to validate them first
-- Ensure your Azure credentials have appropriate permissions for your intended queries
+- Review deployment previews and resource changes before approving write operations
+- Ensure your Azure credentials have appropriate permissions for the intended operation
 - Use the validation tool to catch errors before running queries
 - Start with specific, well-defined requests rather than overly broad natural language prompts
 
@@ -49,6 +54,6 @@ experience in the Azure Portal.
 
 The system performs optimally when:
 - You provide clear, specific requests in natural language
-- Your Azure credentials have appropriate permissions for queried resources
-- You review and validate generated queries before execution
+- Your Azure credentials have appropriate permissions for queried resources and requested operations
+- You review generated queries, deployment previews, and resource changes before execution
 - You use the system within your organization's AI and Azure governance policies

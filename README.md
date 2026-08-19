@@ -12,31 +12,43 @@ with ARM. The **Azure Resource Manager MCP server** is designed to provide that 
 Context Protocol (MCP), the standard protocol agents use to perform actions and retrieve dynamic
 data.
 
-Today, the **Azure Resource Manager MCP server** equips agents with tools to generate, validate, and
-execute Azure Resource Graph (ARG) queries, and to deploy and manage ARM templates. The MCP server is able 
-to query **all your Azure resource types!**. Its core purpose is to enable both AI agents to interact with 
-Azure resources seamlessly, just like other ARM clients. There will be expansion of many more capabilities 
-in the future.
+Today, the **Azure Resource Manager MCP server** equips agents with tools to query Azure resources,
+deploy and manage ARM templates, create or update resources, inspect resource type schemas, and
+analyze Azure costs and pricing. Its core purpose is to enable AI agents to interact with Azure
+resources seamlessly, just like other ARM clients. More capabilities will be added in the future.
 
 ## Features
 The **Azure Resource Manager MCP server** provides the following key features:
 - Generate ARG queries dynamically based on user or agent input.
 - Validate ARG queries for correctness and security.
 - Execute ARG queries against your Azure environment.
-- Deploy ARM templates to Azure.
-- Check ARM template deployment status.
-- Cancel ARM template deployments in progress.
+- Preview, create, monitor, and cancel ARM template deployments.
+- Create or update Azure resources and resource groups.
+- Discover Azure resource types, API versions, and schemas.
+- Query Azure costs, AKS costs, retail prices, and negotiated pricesheets.
 
-Below is a table showing the tools provided by the Azure Resource Manager MCP server:
+The following tools and schemas are currently registered by the Azure Resource Manager MCP server.
+Fields marked optional can be omitted.
 
-| Tool            | Input                                      | Output                                      | Purpose                                      | Example AI Use Case                         |
-|-----------------|--------------------------------------------|---------------------------------------------|----------------------------------------------|---------------------------------------------|
-| execute_query   | ARG query parameters        | Query results                        | Runs queries and returns results             | Fetching user-requested data                |
-| generate_query  | Natural language prompt or requirements     | Generated ARG query        | Creates queries from natural language        | Translating user questions into queries     |
-| validate_query  | ARG query                  | Validation result (success/error message)   | Checks queries for correctness and safety    | Ensuring queries are valid before execution |
-| create_template_deployment  | Subscription ID, resource group, deployment name, ARM template definition | Deployment initiation response | Starts an ARM template deployment in a target resource group | Deploying infrastructure requested by a user |
-| get_arm_template_deployment_status  | Subscription ID, resource group, deployment name | Current deployment status and details | Monitors deployment progress and outcome | Checking whether a deployment succeeded or failed |
-| cancel_arm_template_deployment  | Subscription ID, resource group, deployment name | Cancellation result | Stops an in-progress ARM template deployment | Halting a deployment after validation or policy concerns |
+| Tool | Input | Output | Description |
+|------|-------|--------|-------------|
+| `create_deployment` | `request.targetScope`: `subscriptionId`, `resourceGroupName`, `deploymentName`; `request.definition.properties`: `mode` (`Incremental`), ARM `template`, optional `parameters`, optional `validationLevel` (`Template`, `Provider`, or `ProviderNoRbac`) | ARM deployment initiation response; monitor it with `get_deployment_status` | Deploys an ARM template to an Azure resource group. |
+| `whatif_deployment` | Same target scope and deployment definition as `create_deployment`; optional `whatIfSettings.resultFormat` (`ResourceIdOnly` or `FullResourcePayloads`) | Predicted resource changes; long-running requests can return `locationHeaderUrl` for polling | Previews the changes an ARM template deployment would make. |
+| `get_deployment_status` | `request`: `subscriptionId`, `resourceGroupName`, `deploymentName` | Current deployment status, result, and any deployment errors | Gets the current status and result of an ARM deployment. |
+| `cancel_deployment` | `request`: `subscriptionId`, `resourceGroupName`, `deploymentName` | ARM cancellation response | Cancels an ARM deployment that is currently running. |
+| `get_async_operation_status` | `locationHeaderUrl` from an asynchronous resource or what-if response | `202` while in progress; terminal `200` response with the operation result | Checks the status of a long-running ARM resource operation. Do not use it for `create_deployment`; use `get_deployment_status`. |
+| `create_or_update_resource` | `request.scope`: scope `type` plus identifiers required by that scope; `providerNamespace`, ordered `resourceSegments` (`resourceType`, `resourceName`), `apiVersion`, and resource `body` | ARM `PUT` response; asynchronous operations include `locationHeaderUrl` for polling | Creates or updates a single Azure resource at tenant, management group, subscription, resource group, or resource scope. |
+| `create_or_update_resource_group` | `request.scope.subscriptionId`, `resourceGroupName`, and `definition.location`; optional `definition.tags` | Created or updated resource group | Creates or updates an Azure resource group, including its location and tags. |
+| `list_resource_types` | None | Available Azure resource types and their latest API versions | Lists resource types that can be used in ARM templates and direct ARM calls. |
+| `get_resource_type_schema` | `resourceType`, `apiVersion` | JSON schema containing the resource type's required and optional properties | Gets the JSON schema for a resource type and API version. |
+| `generate_query` | Natural-language `prompt` | Generated Azure Resource Graph query | Generates an Azure Resource Graph query from a natural-language request. |
+| `validate_query` | Azure Resource Graph `query` | Validation result including `isValid`, syntax errors, validated steps, invalid and extracted properties, and extracted resource types | Validates an Azure Resource Graph query's syntax and property paths. |
+| `execute_query` | Azure Resource Graph `query`; optional `options`: `$top`, `$skipToken`, `resultFormat` | Matching resource data, row count, executed query, total records, truncation flag, and optional `skipToken` | Runs an Azure Resource Graph query. Continue with `skipToken` until no token is returned. |
+| `query_costs` | Azure `scope`; optional `timeframe` or `from` and `to`, `granularity`, `groupBy`, paired `filterDimension` and `filterValues`, `metric`, `sortBy`, `sortDirection`, `top` | Cost and usage rows, sorted as requested; 100 rows by default and up to 5,000 | Queries Azure cost and usage data for a subscription or another supported scope. |
+| `query_aks_costs` | Subscription `scope`; optional `timeframe` or `from` and `to`, `granularity`, `groupBy`, paired `filterDimension` and `filterValues`, `metric`, `sortBy`, `sortDirection`, `top` (registered range: 1-5,000) | AKS cost rows by requested dimensions; 100 rows by default | Queries AKS costs by cluster, namespace, utilization category, and service category. |
+| `get_retail_prices` | Optional `serviceName`, `armSkuName`, `armRegionName`, `meterName`, `priceType`, `currencyCode` | Raw Retail Prices API response with `Items`, `Count`, and optional `NextPageLink` | Looks up public Azure retail prices by service, SKU, region, meter, or price type. |
+| `start_pricesheet_download` | Required `agreementType` (`EA`, `MCA_BillingProfile`, or `MCA_Invoice`) and matching billing `scope`; `billingPeriod` (`yyyyMM`) is required for EA | `operationStatusUrl` to poll with `get_pricesheet_status` | Starts an asynchronous EA or MCA Azure pricesheet download. |
+| `get_pricesheet_status` | `operationStatusUrl` returned by `start_pricesheet_download` | `InProgress` with `retryAfterSeconds`, or `Succeeded` with a time-limited `downloadUrl` | Checks a pricesheet download operation. The server returns the URL but does not download the file. |
 
 ### Cost Management & Pricing tools
 
@@ -89,12 +101,23 @@ creation, and connector configuration), see [Other client support](./docs/OtherC
 2. In the Chat window, click the **Configure Tools** icon.  
 3. Ensure **Azure Resource Manager MCP server** is checked. You can click the dropdown icon to see the available tools under
    it:
-  - **execute_query**   
-  - **generate_query**  
-  - **validate_query**
-  - **create_template_deployment**
-  - **get_arm_template_deployment_status**
-  - **cancel_arm_template_deployment**
+   - `create_deployment`
+   - `whatif_deployment`
+   - `get_deployment_status`
+   - `cancel_deployment`
+   - `get_async_operation_status`
+   - `create_or_update_resource`
+   - `create_or_update_resource_group`
+   - `list_resource_types`
+   - `get_resource_type_schema`
+   - `generate_query`
+   - `validate_query`
+   - `execute_query`
+   - `query_costs`
+   - `query_aks_costs`
+   - `get_retail_prices`
+   - `start_pricesheet_download`
+   - `get_pricesheet_status`
 
 ## Usage
 
@@ -126,8 +149,8 @@ subject to the same permissions and access controls defined in Azure.
 
 ### Blocking Template requests
 To prevent any deployments from being made via the ARM MCP server you can apply an Azure Policy to
-the relevant scope (subscription or resource group) that denies request the deployment tool
-(`create_template_deployment`). To see an example of such a policy, please refer to [this sample
+the relevant scope (subscription or resource group) that denies requests made by the deployment tool
+(`create_deployment`). To see an example of such a policy, please refer to [this sample
 policy](./docs/BlockingDeploymentsPolicy.json). You will need to specifically block the AppID of the
 MCP server, which is `22bfbae3-f4e7-485f-be43-8cee15065084`.
 
