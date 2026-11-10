@@ -63,7 +63,7 @@ alerts, and reservation/savings-plan insights — ship as an optional
 **Cost Management** toolset you can turn on per client with the
 `x-mcp-toolset: CostManagement` header.
 
-See [Cost Management & Pricing tools](./docs/CostManagementAndPricingTools.md)
+See [ARM MCP server tools](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-mcp-tools)
 for the full tool list, setup, and example prompts.
 
 ## Supported Clients
@@ -77,7 +77,7 @@ specific client you'd like to see supported, please open an issue to let us know
 ### Other client support
 
 For 3rd-party client setup details (app registration, manifest permissions, redirect URI, service principal
-creation, and connector configuration), see [Other client support](./docs/OtherClientSupport.md).
+creation, and connector configuration), see [Configure an MCP client for the ARM MCP server](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-mcp-other-clients).
 
 ## Getting Started
 
@@ -137,9 +137,8 @@ creation, and connector configuration), see [Other client support](./docs/OtherC
 
 ## Troubleshooting & FAQ
 
-See the [Troubleshooting Guide](./docs/Troubleshooting.md) for common issues and solutions when
-using the Azure Resource Manager MCP server. For additional questions and answers, refer to the
-[FAQ](./docs/FAQ.md).
+See [What is the Azure Resource Manager MCP server?](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-mcp-overview)
+for canonical documentation and links to setup, tools, and governance guidance.
 
 ## Governance
 
