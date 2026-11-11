@@ -18,53 +18,17 @@ analyze Azure costs and pricing. Its core purpose is to enable AI agents to inte
 resources seamlessly, just like other ARM clients. More capabilities will be added in the future.
 
 ## Features
-The **Azure Resource Manager MCP server** provides the following key features:
-- Generate ARG queries dynamically based on user or agent input.
-- Validate ARG queries for correctness and security.
-- Execute ARG queries against your Azure environment.
-- Preview, create, monitor, and cancel ARM template deployments.
-- Create or update Azure resources and resource groups.
-- Discover Azure resource types, API versions, and schemas.
-- Query Azure costs, AKS costs, retail prices, and negotiated pricesheets.
+The Azure Resource Manager MCP server supports Azure management workflows including:
+- Resource discovery with Azure Resource Graph
+- ARM template preview and deployment
+- Resource create/update operations
+- Resource type and schema discovery
+- Cost and pricing analysis
 
-The following tools and schemas are currently registered by the Azure Resource Manager MCP server.
-Fields marked optional can be omitted.
-
-| Tool | Input | Output | Description |
-|------|-------|--------|-------------|
-| `create_deployment` | `request.targetScope`: `subscriptionId`, `resourceGroupName`, `deploymentName`; `request.definition.properties`: `mode` (`Incremental`), ARM `template`, optional `parameters`, optional `validationLevel` (`Template`, `Provider`, or `ProviderNoRbac`) | ARM deployment initiation response; monitor it with `get_deployment_status` | Deploys an ARM template to an Azure resource group. |
-| `whatif_deployment` | Same target scope and deployment definition as `create_deployment`; optional `whatIfSettings.resultFormat` (`ResourceIdOnly` or `FullResourcePayloads`) | Predicted resource changes; long-running requests can return `locationHeaderUrl` for polling | Previews the changes an ARM template deployment would make. |
-| `get_deployment_status` | `request`: `subscriptionId`, `resourceGroupName`, `deploymentName` | Current deployment status, result, and any deployment errors | Gets the current status and result of an ARM deployment. |
-| `cancel_deployment` | `request`: `subscriptionId`, `resourceGroupName`, `deploymentName` | ARM cancellation response | Cancels an ARM deployment that is currently running. |
-| `get_async_operation_status` | `locationHeaderUrl` from an asynchronous resource or what-if response | `202` while in progress; terminal `200` response with the operation result | Checks the status of a long-running ARM resource operation. Do not use it for `create_deployment`; use `get_deployment_status`. |
-| `create_or_update_resource` | `request.scope`: scope `type` plus identifiers required by that scope; `providerNamespace`, ordered `resourceSegments` (`resourceType`, `resourceName`), `apiVersion`, and resource `body` | ARM `PUT` response; asynchronous operations include `locationHeaderUrl` for polling | Creates or updates a single Azure resource at tenant, management group, subscription, resource group, or resource scope. |
-| `create_or_update_resource_group` | `request.scope.subscriptionId`, `resourceGroupName`, and `definition.location`; optional `definition.tags` | Created or updated resource group | Creates or updates an Azure resource group, including its location and tags. |
-| `list_resource_types` | None | Available Azure resource types and their latest API versions | Lists resource types that can be used in ARM templates and direct ARM calls. |
-| `get_resource_type_schema` | `resourceType`, `apiVersion` | JSON schema containing the resource type's required and optional properties | Gets the JSON schema for a resource type and API version. |
-| `generate_query` | Natural-language `prompt` | Generated Azure Resource Graph query | Generates an Azure Resource Graph query from a natural-language request. |
-| `validate_query` | Azure Resource Graph `query` | Validation result including `isValid`, syntax errors, validated steps, invalid and extracted properties, and extracted resource types | Validates an Azure Resource Graph query's syntax and property paths. |
-| `execute_query` | Azure Resource Graph `query`; optional `options`: `$top`, `$skipToken`, `resultFormat` | Matching resource data, row count, executed query, total records, truncation flag, and optional `skipToken` | Runs an Azure Resource Graph query. Continue with `skipToken` until no token is returned. |
-| `query_costs` | Azure `scope`; optional `timeframe` or `from` and `to`, `granularity`, `groupBy`, paired `filterDimension` and `filterValues`, `metric`, `sortBy`, `sortDirection`, `top` | Cost and usage rows, sorted as requested; 100 rows by default and up to 5,000 | Queries Azure cost and usage data for a subscription or another supported scope. |
-| `query_aks_costs` | Subscription `scope`; optional `timeframe` or `from` and `to`, `granularity`, `groupBy`, paired `filterDimension` and `filterValues`, `metric`, `sortBy`, `sortDirection`, `top` (registered range: 1-5,000) | AKS cost rows by requested dimensions; 100 rows by default | Queries AKS costs by cluster, namespace, utilization category, and service category. |
-| `get_retail_prices` | Optional `serviceName`, `armSkuName`, `armRegionName`, `meterName`, `priceType`, `currencyCode` | Raw Retail Prices API response with `Items`, `Count`, and optional `NextPageLink` | Looks up public Azure retail prices by service, SKU, region, meter, or price type. |
-| `start_pricesheet_download` | Required `agreementType` (`EA`, `MCA_BillingProfile`, or `MCA_Invoice`) and matching billing `scope`; `billingPeriod` (`yyyyMM`) is required for EA | `operationStatusUrl` to poll with `get_pricesheet_status` | Starts an asynchronous EA or MCA Azure pricesheet download. |
-| `get_pricesheet_status` | `operationStatusUrl` returned by `start_pricesheet_download` | `InProgress` with `retryAfterSeconds`, or `Succeeded` with a time-limited `downloadUrl` | Checks a pricesheet download operation. The server returns the URL but does not download the file. |
-
-### Cost Management & Pricing tools
-
-Several Cost Management & Pricing tools are **enabled by default** and need no
-extra configuration — `query_costs`, `query_aks_costs`, `get_retail_prices`,
-`start_pricesheet_download`, and `get_pricesheet_status`. They let agents answer
-questions like *"What did I spend on Azure this month, broken down by service?"*
-or *"How much would a Standard_E4s_v5 VM cost in East US?"*
-
-The remaining Cost Management tools — cost forecasting, dimensions, budgets,
-alerts, and reservation/savings-plan insights — ship as an optional
-**Cost Management** toolset you can turn on per client with the
-`x-mcp-toolset: CostManagement` header.
-
-See [ARM MCP server tools](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-mcp-tools)
-for the full tool list, setup, and example prompts.
+For the authoritative, up-to-date tool catalog and feature behavior, use Microsoft Learn:
+- [ARM MCP server overview](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-mcp-overview)
+- [ARM MCP server tools](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-mcp-tools)
+- [Secure and govern ARM MCP server use](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-mcp-governance)
 
 ## Supported Clients
 During this preview, Azure Resource Manager MCP server can only be used with a set of MCP Clients. Right now you can use:
@@ -99,25 +63,8 @@ creation, and connector configuration), see [Configure an MCP client for the ARM
 1. In VS Code, go to **View > Chat**, or click the chat icon to the right of the center toolbar
    header.
 2. In the Chat window, click the **Configure Tools** icon.  
-3. Ensure **Azure Resource Manager MCP server** is checked. You can click the dropdown icon to see the available tools under
-   it:
-   - `create_deployment`
-   - `whatif_deployment`
-   - `get_deployment_status`
-   - `cancel_deployment`
-   - `get_async_operation_status`
-   - `create_or_update_resource`
-   - `create_or_update_resource_group`
-   - `list_resource_types`
-   - `get_resource_type_schema`
-   - `generate_query`
-   - `validate_query`
-   - `execute_query`
-   - `query_costs`
-   - `query_aks_costs`
-   - `get_retail_prices`
-   - `start_pricesheet_download`
-   - `get_pricesheet_status`
+3. Ensure **Azure Resource Manager MCP server** is checked.
+4. For the current tool list and guidance, see [ARM MCP server tools](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-mcp-tools).
 
 ## Usage
 
